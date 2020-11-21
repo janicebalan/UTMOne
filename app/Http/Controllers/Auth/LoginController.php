@@ -36,6 +36,12 @@ class LoginController extends Controller
         if($user->hasRole('user')){
             return redirect('/user');
         }
+        if($user->hasRole('student')){
+            return redirect('/student');
+        }
+        if($user->hasRole('user')){
+            return redirect('/lecturer');
+        }
     }
     /**
      * Create a new controller instance.
