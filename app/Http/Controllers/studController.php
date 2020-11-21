@@ -8,7 +8,7 @@ class studController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:student');
+        $this->middleware('role:student|superadministrator');
     }
     
     public function index()

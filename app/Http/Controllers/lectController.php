@@ -8,7 +8,7 @@ class lectController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:lecturer');
+        $this->middleware('role:lecturer|superadministrator');
     }
     
     public function index()
