@@ -13,6 +13,6 @@ class studController extends Controller
     
     public function index()
     {
-        return view('lecturer.student');
+        return view('student.index');
     }
 }

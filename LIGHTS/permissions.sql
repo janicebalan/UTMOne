@@ -1,0 +1,12 @@
+INSERT INTO `permissions` VALUES (1, 'create-users', 'Create Users', 'Create Users', '2020-11-21 14:00:15', '2020-11-21 14:00:15');
+INSERT INTO `permissions` VALUES (2, 'read-users', 'Read Users', 'Read Users', '2020-11-21 14:00:16', '2020-11-21 14:00:16');
+INSERT INTO `permissions` VALUES (3, 'update-users', 'Update Users', 'Update Users', '2020-11-21 14:00:16', '2020-11-21 14:00:16');
+INSERT INTO `permissions` VALUES (4, 'delete-users', 'Delete Users', 'Delete Users', '2020-11-21 14:00:16', '2020-11-21 14:00:16');
+INSERT INTO `permissions` VALUES (5, 'create-acl', 'Create Acl', 'Create Acl', '2020-11-21 14:00:16', '2020-11-21 14:00:16');
+INSERT INTO `permissions` VALUES (6, 'read-acl', 'Read Acl', 'Read Acl', '2020-11-21 14:00:16', '2020-11-21 14:00:16');
+INSERT INTO `permissions` VALUES (7, 'update-acl', 'Update Acl', 'Update Acl', '2020-11-21 14:00:16', '2020-11-21 14:00:16');
+INSERT INTO `permissions` VALUES (8, 'delete-acl', 'Delete Acl', 'Delete Acl', '2020-11-21 14:00:17', '2020-11-21 14:00:17');
+INSERT INTO `permissions` VALUES (9, 'read-profile', 'Read Profile', 'Read Profile', '2020-11-21 14:00:17', '2020-11-21 14:00:17');
+INSERT INTO `permissions` VALUES (10, 'update-profile', 'Update Profile', 'Update Profile', '2020-11-21 14:00:17', '2020-11-21 14:00:17');
+INSERT INTO `permissions` VALUES (11, 'delete-profile', 'Delete Profile', 'Delete Profile', '2020-11-21 14:00:22', '2020-11-21 14:00:22');
+INSERT INTO `permissions` VALUES (12, 'create-profile', 'Create Profile', 'Create Profile', '2020-11-21 14:00:25', '2020-11-21 14:00:25');
