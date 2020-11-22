@@ -30,7 +30,7 @@ class LoginController extends Controller
     
     protected function authenticated(Request $request, $user)
     {
-        if($user->hasRole('superadministrator')){
+        if($user->hasRole('administrator')){
             return redirect('admin');
         }
         if($user->hasRole('user')){
