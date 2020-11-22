@@ -39,7 +39,7 @@ class LoginController extends Controller
         if($user->hasRole('student')){
             return redirect('student');
         }
-        if($user->hasRole('user')){
+        if($user->hasRole('lecturer')){
             return redirect('lecturer');
         }
     }
