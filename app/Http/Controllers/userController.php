@@ -8,7 +8,7 @@ class userController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:user|superadministrator');
+        $this->middleware('role:user|administrator');
     }
     
     public function index()
