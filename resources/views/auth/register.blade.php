@@ -26,6 +26,24 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
+
+                            <div class="col-md-6">
+                                <br>
+                                <input id="lecturer" type="radio" name="role" value="{{ old('role') }}" required autocomplete="role">
+                                <label for="lecturer">Lecturer</label><br>
+                                <input id="student" type="radio" name="role" value="{{ old('role') }}" required autocomplete="role">
+                                <label for="student">Student</label><br>
+        
+                                @error('role')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <!--
+                        <div class="form-group row">
                             <label for="userID" class="col-md-4 col-form-label text-md-right">{{ __('Student/Lecturer ID') }}</label>
 
                             <div class="col-md-6">
@@ -52,6 +70,7 @@
                                 @enderror
                             </div>
                         </div>
+                        -->
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

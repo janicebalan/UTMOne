@@ -13,6 +13,9 @@ return [
         'student' => [
             'profile' => 'r,u,d'
         ],
+        'user' => [
+            'profile' => 'r,u'
+        ],
     ],
     'permission_structure' => [
         'cru_user' => [
