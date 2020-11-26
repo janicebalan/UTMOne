@@ -20,6 +20,12 @@ class LoginController extends Controller
     |
     */
 
+    //by default, laravel uses email to auth, this function is to change email to username
+    public function username()
+    {
+        return 'username';
+    }
+
     use AuthenticatesUsers;
 
     /**

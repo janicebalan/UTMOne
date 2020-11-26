@@ -26,16 +26,18 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
+                            <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
 
                             <div class="col-md-6">
                                 <br>
-                                <input id="lecturer" type="radio" name="role" value="{{ old('role') }}" required autocomplete="role">
+                                <input id="administrator" type="radio" name="roles" value="administrator" required autocomplete="roles">
+                                <label for="administrator">Administrator</label><br>
+                                <input id="lecturer" type="radio" name="roles" value="lecturer" required autocomplete="roles">
                                 <label for="lecturer">Lecturer</label><br>
-                                <input id="student" type="radio" name="role" value="{{ old('role') }}" required autocomplete="role">
+                                <input id="student" type="radio" name="roles" value="student" required autocomplete="roles">
                                 <label for="student">Student</label><br>
 
-                                @error('role')
+                                @error('roles')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

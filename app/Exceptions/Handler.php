@@ -50,6 +50,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        //solves the logout page expired problem
+        if ($exception instanceof \Illuminate\Session\TokenMismatchException) {
+            return redirect()->route('login');
+        }
+
         return parent::render($request, $exception);
     }
 }
