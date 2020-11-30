@@ -32,7 +32,7 @@
       <tr>
         <td>{{$t->id}}</td>
         <td>{{$t->taskTitle}}</td>
-        <td><a href="#" class="btn btn-info">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
+        <td><a href="#" class="btn btn-info">Update</a> <a href="#" class="btn btn-danger">Delete</a></td>
       </tr>
       @endforeach
       </table>
