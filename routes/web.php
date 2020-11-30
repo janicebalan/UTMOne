@@ -28,6 +28,6 @@ Route::get('/user', 'userController@index')->name('user');
 Route::get('/admin', 'adminController@index')->name('admin');
 Route::get('/lecturer', 'lectController@index')->name('lecturer');
 Route::get('/student', 'studController@index')->name('student');
-Route::get('/lecturer/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('list_task');
+Route::resource('/lecturer/tasks', 'Lecturer\TaskController', ['as'=>'lecturer']);
 
 Auth::routes();

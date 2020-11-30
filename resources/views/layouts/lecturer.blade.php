@@ -189,7 +189,7 @@
 
           </li>
           <li class="nav-item">
-            <a href="{{route('list_task')}}" class="nav-link ">
+            <a href="{{route('lecturer.tasks.index')}}" class="nav-link ">
               <i class="nav-icon fa fa-th"></i>
               <p>
                 Tasks

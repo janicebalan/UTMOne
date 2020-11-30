@@ -20,19 +20,34 @@
     <section class="content">
       <div class="container-fluid">
       <p>
-      <a href="#" class="btn btn-primary">Assign New Task</a>
+      <a href="{{ route('lecturer.tasks.create') }}" class="btn btn-primary">Assign New Task</a>
       </p>
       <table class="table table-bordered table-striped">
       <tr>
         <th>ID</th>
         <th>Title</th>
+        <th>Details</th>
+        <th>Number of Files</th>
+        <th>Type of Files</th>
+        <th>Due Date</th>
         <th>Action</th>
       </tr>
       @foreach($tasks as $t)
       <tr>
         <td>{{$t->id}}</td>
         <td>{{$t->taskTitle}}</td>
-        <td><a href="#" class="btn btn-info">Update</a> <a href="#" class="btn btn-danger">Delete</a></td>
+        <td>{{$t->taskDetails}}</td>
+        <td>{{$t->taskNo}}</td>
+        <td>{{$t->taskType}}</td>
+        <td>{{$t->taskDue}}</td>
+        <td>
+          <a href="{{route('lecturer.tasks.edit',$t->id)}}" class="btn btn-info">Update</a> 
+          <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger">Delete</a>
+          <form action="{{route('lecturer.tasks.destroy', $t->id) }}" method="post">
+          @method('DELETE')
+          <input type="hidden" name="_token" value="{{csrf_token()}}">
+          </form>
+        </td>
       </tr>
       @endforeach
       </table>

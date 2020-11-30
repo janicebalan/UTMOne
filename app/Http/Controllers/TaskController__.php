@@ -20,4 +20,9 @@ class TaskController extends Controller
         $tasks = DB::table('task')->get();
         return view('lecturer.task.index', ['tasks'=> $tasks]);
     }
+    public function detail($id){
+
+        $task = DB::table('task')->find($id);
+        echo $task->taskTitle;
+    }
 }
