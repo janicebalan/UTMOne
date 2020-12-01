@@ -18,6 +18,15 @@
       </div><!-- /.container-fluid -->
     </div>
      <!-- /.content-header -->
+     @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
      <section class="content">
       <div class="container-fluid">
         <form method= "post" action="{{route ('lecturer.tasks.store')}}">
@@ -46,7 +55,7 @@
                 </div>
                 <div class="row">
                     <label class="col-md-3">Due Date</label>
-                    <div class="col-md-6"><input type="datetime-local" name="taskDue" class="form-control"></div>
+                    <div class="col-md-6"><input type="datetime-local" name="taskDue" class="form-control" ></div>
                     <div class="clearfix"></div>
                 </div>
             </div>

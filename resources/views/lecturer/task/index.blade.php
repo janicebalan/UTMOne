@@ -42,7 +42,7 @@
         <td>{{$t->taskDue}}</td>
         <td>
           <a href="{{route('lecturer.tasks.edit',$t->id)}}" class="btn btn-info">Update</a> 
-          <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger">Delete</a>
+          <a href="javascript:void(0)" onclick="$('input[type=hidden]').closest('form')" class="btn btn-danger">Delete</a>
           <form action="{{route('lecturer.tasks.destroy', $t->id) }}" method="post">
           @method('DELETE')
           <input type="hidden" name="_token" value="{{csrf_token()}}">

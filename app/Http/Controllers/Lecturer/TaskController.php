@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Task;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class TaskController extends Controller
 {
@@ -43,6 +44,15 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+        $today = Carbon::today();
+
+        $validatedData= $request->validate(['taskTitle'=>['required','max:255'],
+        'taskDetails' =>['required'],
+        'taskNo' =>['required'],
+        'taskType' =>['required'],
+        'taskDue' =>['required', 'after_or_equal:'.$today],
+        ]);
+
         $task = new Task;
         $task->taskTitle = $request->taskTitle;
         $task->taskDetails = $request->taskDetails;
@@ -52,7 +62,8 @@ class TaskController extends Controller
 
         $task->save();
        
-        return redirect()->route ('lecturer.tasks.index');
+        return redirect()->route ('lecturer.tasks.index')->with('success','Assign new task successfully!');
+    
     }
 
     /**
@@ -87,6 +98,15 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
+        $today = Carbon::today();
+        $validatedData= $request->validate(['taskTitle'=>['required','max:255'],
+        'taskDetails' =>['required'],
+        'taskNo' =>['required'],
+        'taskType' =>['required'],
+        'taskDue' =>['required','after_or_equal:'.$today],
+        ]);
+
+
         $task->taskTitle = $request->taskTitle;
         $task->taskDetails = $request->taskDetails;
         $task->taskNo = $request->taskNo;
@@ -94,8 +114,7 @@ class TaskController extends Controller
         $task->taskDue = $request->taskDue;
 
         $task->save();
-       
-        return redirect()->route ('lecturer.tasks.index');
+        return redirect()->route ('lecturer.tasks.index')->with('success','Updated successfully!');
     }
 
     /**
@@ -106,8 +125,10 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        $task =  DB::table('task')->find($id);
-        $task->delete();
+        DB::delete('delete from task where id = ?',[$id]);
         return redirect()->route ('lecturer.tasks.index');
+
+        
     }
+    
 }
