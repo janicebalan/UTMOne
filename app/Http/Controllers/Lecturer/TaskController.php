@@ -126,7 +126,7 @@ class TaskController extends Controller
     public function destroy($id)
     {
         DB::delete('delete from task where id = ?',[$id]);
-        return redirect()->route ('lecturer.tasks.index');
+        return redirect()->route ('lecturer.tasks.index')->with('success','Deleted successfully!');
 
         
     }

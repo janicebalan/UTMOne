@@ -30,7 +30,7 @@
         <th>Number of Files</th>
         <th>Type of Files</th>
         <th>Due Date</th>
-        <th>Action</th>
+        <th colspan="2">Action</th>
       </tr>
       @foreach($tasks as $t)
       <tr>
@@ -42,10 +42,12 @@
         <td>{{$t->taskDue}}</td>
         <td>
           <a href="{{route('lecturer.tasks.edit',$t->id)}}" class="btn btn-info">Update</a> 
-          <a href="javascript:void(0)" onclick="$('input[type=hidden]').closest('form')" class="btn btn-danger">Delete</a>
+        </td>
+        <td>  
           <form action="{{route('lecturer.tasks.destroy', $t->id) }}" method="post">
-          @method('DELETE')
-          <input type="hidden" name="_token" value="{{csrf_token()}}">
+          {{csrf_field()}}
+          <input type="hidden" name="_method" value="DELETE">
+          <button type='submit' name="submit" class="btn btn-danger">Delete</button>
           </form>
         </td>
       </tr>

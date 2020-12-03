@@ -29,7 +29,5 @@ Route::get('/admin', 'adminController@index')->name('admin');
 Route::get('/lecturer', 'lectController@index')->name('lecturer');
 Route::get('/student', 'studController@index')->name('student');
 Route::resource('/lecturer/tasks', 'Lecturer\TaskController', ['as'=>'lecturer']);
-Route::get('delete-records','TaskDeleteController@index');
-Route::get('delete/{id}','TaskDeleteController@destroy');
 
 Auth::routes();
