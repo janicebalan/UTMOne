@@ -34,5 +34,6 @@ Route::post('/admin/storeCourse', 'CourseController@Store')->name('creatingCours
 Route::get('edit/courses/{id}', 'CourseController@edit');
 Route::post('update/courses/{id}', 'CourseController@update');
 Route::get('delete/courses/{id}', 'CourseController@delete');
+Route::resource('/lecturer/tasks', 'Lecturer\TaskController', ['as'=>'lecturer']);
 
 Auth::routes();

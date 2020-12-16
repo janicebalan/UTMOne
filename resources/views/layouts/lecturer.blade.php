@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="{{asset ('')}}plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -157,7 +158,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="{{asset ('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="{{asset ('dist/img/UTMOneLogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Lecturer</span>
     </a>
@@ -189,7 +190,7 @@
 
           </li>
           <li class="nav-item">
-            <a href="{{route('list_task')}}" class="nav-link ">
+            <a href="{{route('lecturer.tasks.index')}}" class="nav-link ">
               <i class="nav-icon fa fa-th"></i>
               <p>
                 Tasks
@@ -699,6 +700,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    @include('flash-message')
     @yield('content')
   </div>
   <!-- /.content-wrapper -->

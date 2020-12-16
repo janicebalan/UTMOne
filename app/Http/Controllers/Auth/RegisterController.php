@@ -42,7 +42,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('role:administrator');
     }
 
     /**
@@ -82,30 +82,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
 
         ]);
-        /*
-        if(isset($_POST['roles'])){
-            $roles= $_POST['roles'];
-            echo 'The role chosen is ' . $roles;
-        } else {
-            $roles= "student";
-        }
-
-        if($roles == 'admin'){ 
-            $user->attachRole('admin');
-        }
-        else if($roles == 'lecturer') {
-            $user->attachRole('lecturer');
-        }
-        else if($roles == 'student'){ 
-            $user->attachRole('student');
-        }
-        else if($roles == 'user'){ 
-            $user->attachRole('user');
-        }   
-        else{
-            $user->attachRole('admin');
-        }
-        */
+       
         $roles= $_POST ['roles'];
         echo 'The role chosen is ' . $roles;
         
