@@ -29,5 +29,10 @@ Route::get('/admin', 'adminController@index')->name('admin');
 Route::get('/lecturer', 'lectController@index')->name('lecturer');
 Route::get('/student', 'studController@index')->name('student');
 Route::get('/lecturer/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('list_task');
+Route::view('/admin/createView', '/admin/createCourse/create')->name('createPage');
+Route::post('/admin/storeCourse', 'CourseController@Store')->name('creatingCourse');
+Route::get('edit/courses/{id}', 'CourseController@edit');
+Route::post('update/courses/{id}', 'CourseController@update');
+Route::get('delete/courses/{id}', 'CourseController@delete');
 
 Auth::routes();
