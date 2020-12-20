@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Lecturer | Dashboard</title>
+  <title>Student | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -160,7 +160,7 @@
     <a href="index3.html" class="brand-link">
       <img src="{{asset ('dist/img/UTMOneLogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Lecturer</span>
+      <span class="brand-text font-weight-light">Student</span>
     </a>
 
     <!-- Sidebar -->
@@ -171,7 +171,7 @@
           <img src="{{asset ('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Dr. Zainal</a>
+          <a href="#" class="d-block">Elvin Mo</a>
         </div>
       </div>
 
@@ -181,7 +181,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item  menu-open">
-            <a href="{{route('lecturer')}}" class="nav-link active">
+            <a href="{{route('student')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -308,7 +308,7 @@
             <a href="{{route('lecturer.tasks.index')}}" class="nav-link ">
               <i class="nav-icon fa fa-th"></i>
               <p>
-                Assign Tasks
+                Submit Tasks
               </p>
             </a>
             </li>
