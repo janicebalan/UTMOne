@@ -18,7 +18,6 @@
                             <th scope="col">Email</th>
                             <th scope="col">Username</th>
                             <th scope="col">UserID</th>
-                            <th scope="col">Role</th>
                             <th scope="col">Update</th>
                             <th scope="col">Delete</th>
                             </tr>
@@ -31,7 +30,6 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->username }}</td>
                                 <td>{{ $user->userID }}</td>
-                                <td>Role</td>
                                 <td><a href = 'edit/{{ $user->id }}'>Edit</a></td>
                                 <td><a href = 'delete/{{ $user->id }}'>Delete</a></td>
                             </tr>
