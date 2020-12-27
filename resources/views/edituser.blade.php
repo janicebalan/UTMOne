@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 
 <br>
-<div class="container">
+<div>
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div>
             <div class="card">
                 <div class="card-header">{{ __('Update & Delete') }}</div>
 
@@ -19,28 +19,23 @@
                             <th scope="col">Username</th>
                             <th scope="col">UserID</th>
                             <th scope="col">Role</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($users as $user)
                             <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->username }}</td>
+                                <td>{{ $user->userID }}</td>
+                                <td>Role</td>
+                                <td><a href = 'edit/{{ $user->id }}'>Edit</a></td>
+                                <td><a href = 'delete/{{ $user->id }}'>Delete</a></td>
                             </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            </tr>
-                            
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -51,3 +46,4 @@
 </div>
 
 @endsection
+
