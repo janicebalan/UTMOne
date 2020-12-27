@@ -36,4 +36,7 @@ Route::post('update/courses/{id}', 'CourseController@update');
 Route::get('delete/courses/{id}', 'CourseController@delete');
 Route::resource('/lecturer/tasks', 'Lecturer\TaskController', ['as'=>'lecturer']);
 
+Route::view('/edituser', '/edituser')->name('edituser');
+Route::get('view-records','userController@index');
+
 Auth::routes();
