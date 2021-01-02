@@ -35,6 +35,13 @@ Route::get('edit/courses/{id}', 'CourseController@edit');
 Route::post('update/courses/{id}', 'CourseController@update');
 Route::get('delete/courses/{id}', 'CourseController@delete');
 Route::resource('/lecturer/tasks', 'Lecturer\TaskController', ['as'=>'lecturer']);
+Route::view('/edituser', '/edituser')->name('edituser');
+Route::get('edituser','userController@index');
+Route::get('delete/{id}','userController@destroy');
+
+Route::get('edit-records','userController@index');
+Route::get('edit/{id}','userController@show');
+Route::post('edit/{id}','userController@edit');
 
 
 Route::resource('/student/posts', 'PostsController', ['as'=>'student']);
