@@ -13,7 +13,9 @@ class UpdatedCoursetable extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('courses', function (Blueprint $table) {
+		$table->longText('courseWork');
+		});
     }
 
     /**
@@ -23,6 +25,6 @@ class UpdatedCoursetable extends Migration
      */
     public function down()
     {
-        //
+      Schema::dropIfExists('courses');
     }
 }
