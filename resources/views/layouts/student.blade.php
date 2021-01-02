@@ -59,7 +59,6 @@ $(document).ready(function () {
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
           @csrf
         </form>
->>>>>>> ec54217d4f9955918f81c94e0100d7db37c93234
       </li>
     </ul>
 
