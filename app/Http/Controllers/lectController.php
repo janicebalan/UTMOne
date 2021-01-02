@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Course;
+use Illuminate\Support\Facades\DB;
 
 class lectController extends Controller
 {
@@ -10,9 +12,10 @@ class lectController extends Controller
     {
         $this->middleware('role:lecturer|administrator');
     }
-    
+
     public function index()
     {
-        return view('lecturer.index');
+        $product = DB::table('courses')->get();
+       return view("lecturer.index", ['product' => $product]);
     }
 }

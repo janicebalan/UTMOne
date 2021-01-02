@@ -1,3 +1,5 @@
+@extends('layouts.admin')
+@section('content')
 <!DOCTYPE html>
 <html>
   <head>
@@ -127,7 +129,6 @@
         <h1>Update Existing Course</h1>
         <p>Please fill in the details correctly to update a course</p>
         <div class="btn-group">
-          <a class="btn-item" href="https://www.w3docs.com/learn-html.html">Preview Course</a>
           <a class="btn-item" href="https://www.w3docs.com/quiz/#">Assign Lecturer</a>
         </div>
       </div>
@@ -156,3 +157,4 @@
     </div>
   </body>
 </html>
+@endsection

@@ -8,16 +8,16 @@ use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('role:administrator');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('role:administrator');
+    // }
 
-    public function index()
-    {
-        $product = DB::table('courses')->get();
-       return view("admin.index", ['product' => $product]);
-    }
+    // public function index()
+    // {
+    //     $product = DB::table('courses')->get();
+    //    return view("admin.index", ['product' => $product]);
+    // }
 
     public function Store(Request $request)
     {
@@ -53,5 +53,40 @@ class CourseController extends Controller
     {
         $course = DB::table('courses')->where('id', $id)->delete();
         return redirect()->route('admin')->with('success', 'Course Deleted');
+
+    }
+
+    public function view($id)
+    {
+        $course = DB::table('courses')->where('id', $id)->first();
+        return view('admin.Course.view', compact('course'));
+    }
+
+    public function lectview($id)
+    {
+        $course = DB::table('courses')->where('id', $id)->first();
+        return view('lecturer.course.view', ['course' => $course]);
+    }
+
+    public function studview($id)
+    {
+        $course = DB::table('courses')->where('id', $id)->first();
+        return view('student.viewCourse', ['course' => $course]);
+    }
+
+    public function editCourseWork($id)
+    {
+        $course = DB::table('courses')->where('id', $id)->first();
+        return view("lecturer.course.editCourseWork", ['course' => $course]);
+    }
+
+    public function updatecourseWork(Request $request, $id)
+    {
+        $data=array();
+        $data['courseWork'] = $request->courseWork;
+
+
+        $course = DB::table('courses')->where('id', $id)->update($data);
+        return redirect()->route('lecturerCourse', $id)->with('success', 'Course Description Updated');
     }
 }

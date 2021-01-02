@@ -7,7 +7,8 @@
 
     <button type="submit">Create</button>
 </form> -->
-
+@extends('layouts.admin')
+@section('content')
 <!DOCTYPE html>
 <html>
   <head>
@@ -171,3 +172,4 @@
     </div>
   </body>
 </html>
+@endsection

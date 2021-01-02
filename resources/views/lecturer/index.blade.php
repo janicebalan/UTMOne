@@ -109,16 +109,29 @@
                 </div>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <div class="tab-content p-0">
-                  <!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart"
-                       style="position: relative; height: 300px;">
-                      <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>                         
-                   </div>
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>                         
-                  </div>  
-                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Course ID</th>
+                        <th>Course Name</th>
+                        <th>Course Capacity</th>
+                        <th>Lecturer Assigned</th>
+                        <th>Action</th>
+                    </tr>
+                    @foreach($product as $courses)
+                    <tr>
+
+                      <td>{{$courses->courseID}}</td>
+                      <td>{{$courses->courseName}}</td>
+                      <td>{{$courses->courseCapacity}}</td>
+                      <td>{{$courses->lecturerAssigned}}</td>
+                      <td>
+                      <a class="btn btn-info" href="{{URL::to('/lecturer/view/courses/'.$courses->id)}}">Show</a>
+
+                      </td>
+
+                    </tr>
+                    @endforeach()
+                </table>
               </div><!-- /.card-body -->
             </div>
             <!-- /.card -->
