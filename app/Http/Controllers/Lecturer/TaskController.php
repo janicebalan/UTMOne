@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Lecturer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Task;
+use App\Post;
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -25,6 +27,18 @@ class TaskController extends Controller
         $tasks = DB::table('task')->get();
         return view('lecturer.task.index', ['tasks'=> $tasks]);
     }
+
+    public function index2(){
+        $tasks = DB::table('task')->get();
+        return view('student.tasks.index', ['tasks'=> $tasks]);
+    }
+
+    
+
+    //public function index2()
+    //{
+    //    return Task::find(1)->mytask;
+    //}
 
     /**
      * Show the form for creating a new resource.
@@ -74,7 +88,11 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $task = Task::find($id);
+        $user_id = auth()->user()->id;
+        $post = Post::where('user_id', $user_id)->get();
+        return view('student.tasks.show', compact('task', 'post'));
     }
 
     /**

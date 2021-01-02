@@ -26,7 +26,15 @@
   <link rel="stylesheet" href="{{asset ('')}}plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+  <script>
+$(document).ready(function () {
+  $('.date').datetimepicker({
+    format: 'DD/MM/YYYY',
+    locale: 'en'
+  });
+</script>
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -39,10 +47,11 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="{{route('student')}}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
+        
       </li>
     </ul>
 
@@ -171,7 +180,7 @@
           <img src="{{asset ('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Elvin Mo</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -305,22 +314,15 @@
 
           <li class="nav-header">COURSE ACTION</li>
           <li class="nav-item">
-            <a href="{{route('lecturer.tasks.index')}}" class="nav-link ">
+            <a href="{{route('studTaskList')}}" class="nav-link ">
               <i class="nav-icon fa fa-th"></i>
               <p>
-                Submit Tasks
+                Task Dashboard
               </p>
             </a>
             </li>
          
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Tasks Dashboard
-              </p>
-            </a>
-          </li>
+         
           
           <li class="nav-header">User Action</li>
           

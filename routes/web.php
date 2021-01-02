@@ -36,4 +36,11 @@ Route::post('update/courses/{id}', 'CourseController@update');
 Route::get('delete/courses/{id}', 'CourseController@delete');
 Route::resource('/lecturer/tasks', 'Lecturer\TaskController', ['as'=>'lecturer']);
 
+
+Route::resource('/student/posts', 'PostsController', ['as'=>'student']);
+Route::get('/student/post/create/{id}', [App\Http\Controllers\PostsController::class, 'create2'])->name('studCreate'); 
+Route::get('/student/post/edit/{id}', [App\Http\Controllers\PostsController::class, 'edit2'])->name('studEdit'); 
+Route::post('/student/post/store/{id}', [App\Http\Controllers\PostsController::class, 'store2'])->name('studStore'); 
+Route::get('/student/tasks', [App\Http\Controllers\Lecturer\TaskController::class, 'index2'])->name('studTaskList');
+Route::get('/student/tasks/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'show'])->name('studTaskDetails');
 Auth::routes();
