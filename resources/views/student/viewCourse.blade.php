@@ -21,7 +21,7 @@
             <div class="card bg-info text-white">
                 <div class="card-body" style='text-align:center' ><h1>{{$course->courseName}}</h1></div>
             </div>
-            <a href="#" class="btn btn-info float-left" role="button">View Tasks</a></p>
+            <a href="{{route('studTaskList')}}" class="btn btn-info float-left" role="button">View Tasks</a></p>
             <br>
             <br>
             <div class="card bg-light text-dark">
