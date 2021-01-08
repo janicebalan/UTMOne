@@ -40,6 +40,6 @@ class Task extends Model
     public $timestamps = true;
 
     public function post(){
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Post' , 'task_id');
     }
 }
