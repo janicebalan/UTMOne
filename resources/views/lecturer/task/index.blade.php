@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Tasks</h1>
+            <h1 class="m-0 text-dark"><b>Tasks</b></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -19,6 +19,7 @@
     <!-- /.content-header -->
     <section class="content">
       <div class="container-fluid">
+      <div class="card-body">
       <p>
       <a href="{{ route('lecturer.tasks.create') }}" class="btn btn-primary">Assign New Task</a>
       </p>
@@ -31,6 +32,7 @@
         <th>Type of Files</th>
         <th>Due Date</th>
         <th colspan="2">Action</th>
+        <th>View Submissions</th>
       </tr>
       @foreach($tasks as $t)
       <tr>
@@ -50,9 +52,11 @@
           <button type='submit' name="submit" class="btn btn-danger">Delete</button>
           </form>
         </td>
+        <td> <a href="{{route('studTaskList', $t->id) }}" class="btn btn-info">View Students</a></td>
       </tr>
       @endforeach
       </table>
+      </div>
       </div>
       </section>
 @endsection

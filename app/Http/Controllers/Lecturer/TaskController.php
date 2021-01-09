@@ -90,8 +90,10 @@ class TaskController extends Controller
     {
         
         $task = Task::find($id);
+        $task_id = $task->id;
         $user_id = auth()->user()->id;
-        $post = Post::where('user_id', $user_id)->get();
+        $post = Post::where(['user_id'=> $user_id, 'task_id' => $task_id])->get();
+        //$post = Post::where('user_id', $user_id)->get();
         return view('student.tasks.show', compact('task', 'post'));
     }
 
@@ -145,8 +147,17 @@ class TaskController extends Controller
     {
         DB::delete('delete from task where id = ?',[$id]);
         return redirect()->route ('lecturer.tasks.index')->with('success','Deleted successfully!');
+ 
+    }
 
-        
+    public function showStudent($id)
+    {
+
+        $task = Task::find($id);
+        $task_id = $task->id;
+        $post = Post::where([ 'task_id' => $task_id])->get();
+
+        return view('lecturer.task.showStudent', compact('task', 'post'));
     }
     
 }

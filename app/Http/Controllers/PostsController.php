@@ -144,14 +144,19 @@ class PostsController extends Controller
         $posts->title = $request->input('title');
         $posts->body = $request->input('body');
         $posts->user_id = auth()->user()->id;
+        $posts->task_id = $id;
         $posts->fileupload = $fileNameToStore;
         $posts->save();
 
-
-        $task = Task::find($id);
-        $user_id = auth()->user()->id;
-        $post = Post::where('user_id', $user_id)->get();
-        return view('student.tasks.show', compact('task', 'post'));
+        return app('App\Http\Controllers\Lecturer\TaskController')->show($id);
+        //$task = Task::find($id);
+        //$task_id = $task->id;
+        //$user_id = auth()->user()->id;
+       // $post = Post::where(['user_id'=> $user_id, 'task_id' => $task_id])->get();
+        
+       // $post = Post::where('user_id', $user_id)->get();
+        //return view('student.tasks.show', compact('task', 'post'));
+        
         
     }
 

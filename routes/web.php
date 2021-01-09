@@ -55,4 +55,7 @@ Route::get('/student/post/edit/{id}', [App\Http\Controllers\PostsController::cla
 Route::post('/student/post/store/{id}', [App\Http\Controllers\PostsController::class, 'store2'])->name('studStore'); 
 Route::get('/student/tasks', [App\Http\Controllers\Lecturer\TaskController::class, 'index2'])->name('studTaskList');
 Route::get('/student/tasks/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'show'])->name('studTaskDetails');
+
+Route::get('/lecturer/tasks/showStudent/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'showStudent'])->name('studTaskList');
+
 Auth::routes();
