@@ -52,7 +52,7 @@
           <button type='submit' name="submit" class="btn btn-danger">Delete</button>
           </form>
         </td>
-        <td> <a href="{{route('studTaskList', $t->id) }}" class="btn btn-info">View Students</a></td>
+        <td> <a href="{{route('studTaskLists', $t->id) }}" class="btn btn-info">View Students</a></td>
       </tr>
       @endforeach
       </table>
