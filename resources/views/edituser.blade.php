@@ -21,7 +21,7 @@
                             <th scope="col">Update</th>
                             <th scope="col">Delete</th>
                             </tr>
-                        </thead>
+                        </thead> 
                         <tbody>
                             @foreach ($users as $user)
                             <tr>

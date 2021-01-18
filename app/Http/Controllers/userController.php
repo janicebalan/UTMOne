@@ -32,7 +32,7 @@ class userController extends Controller
      public function show($id) {
         $users = DB::select('select * from users where id = ?',[$id]);
         return view('updateuser',['users'=>$users]);
-    }
+    } 
      public function edit(Request $request,$id) {
         $name = $request->input('name');
         $email = $request->input('email');
