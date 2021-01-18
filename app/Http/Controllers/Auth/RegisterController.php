@@ -81,7 +81,7 @@ class RegisterController extends Controller
             'userID' => $data['userID'],
             'password' => Hash::make($data['password']),
 
-        ]);
+        ]); 
        
         $roles= $_POST ['roles'];
         echo 'The role chosen is ' . $roles;
