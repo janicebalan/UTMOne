@@ -166,5 +166,17 @@ class TaskController extends Controller
         $post = Post::where([ 'task_id' => $task_id])->get();
         return view('lecturer.task.grade',compact('task', 'post'));
     }
+
+    public function storeGrade(Request $request, $id){
+        $post = Post::find($id);
+
+        $post->grade = $request->input('grade');
+        $post->save();
+
+        $task_id= $post->task_id;
+        $task = Task::find($task_id);
+        $post = Post::where([ 'task_id' => $task_id])->get();
+        return view('lecturer.task.grade',compact('task', 'post'));
+    }
     
 }

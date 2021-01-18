@@ -1,8 +1,11 @@
 @extends('layouts.lecturer')
 @section('content')
 
-br>
+
 <div class='container'>
+<br>
+<a href="{{route('studTaskLists', $task->id) }}" class="btn btn-secondary" style="width:100px">&laquo; Back</a>
+<br><br>
     <div class="card bg-info text-white">
         <div class="card-body" style='text-align:center' ><h1>Grading Tasks</h1></div>
     </div>
@@ -23,22 +26,26 @@ br>
                 <th scope="col" >File submission</th>
                 <th scope="col"style='width:150px' >Grade (A,B,C,D,E)</th>
                 </tr>
-                <form method= "post" action="">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                
                 @foreach($post as $posts)
                 <tr>
                     <td>{{$posts->user->name}} </td>
                     <td><a href="/storage/fileupload/{{$posts->fileupload}}">{{$posts->fileupload}}</a> </td>
+                    @if(!empty($posts->grade))
+                        <td>{{$posts->grade}} </td>
+                        
+                    @else
                     <td> 
-                    <form method= "post" action="">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="text" name="grade" style="width:50px">
-                        <input type="submit" class="btn btn-info" value="Save">
-                 </form>
+                    <form method="POST" action="{{route ('storeGrade', $posts->id)}}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="text" name="grade" style="width:50px">
+                            <input type="submit" class="btn btn-info" value="Save">
+                            </form>
                     </td>
-                 </tr>
+                    @endif
+                    
+                </tr>
                  @endforeach
-                 
             </thead>
             <tbody>
            

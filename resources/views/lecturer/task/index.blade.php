@@ -1,23 +1,11 @@
 @extends('layouts.lecturer')
 @section('content')
 
-<div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark"><b>Tasks</b></h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{url('/lecturer')}}">Dashboard</a></li>
-              <li class="breadcrumb-item active">Tasks</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+<br>
+<div class='container'>
+<div class="card bg-info text-white">
+        <div class="card-body" style='text-align:center' ><h1>Tasks List</h1></div>
     </div>
-    <!-- /.content-header -->
-    <section class="content">
       <div class="container-fluid">
       <div class="card-body">
       <p>
@@ -58,5 +46,5 @@
       </table>
       </div>
       </div>
-      </section>
+      </div>
 @endsection
