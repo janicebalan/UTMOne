@@ -57,5 +57,6 @@ Route::get('/student/tasks', [App\Http\Controllers\Lecturer\TaskController::clas
 Route::get('/student/tasks/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'show'])->name('studTaskDetails');
 
 Route::get('/lecturer/tasks/showStudent/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'showStudent'])->name('studTaskLists');
+Route::get('/lecturer/tasks/grade/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'grade'])->name('grade');
 
 Auth::routes();

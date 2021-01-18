@@ -22,6 +22,7 @@
         
 
         @else
+        <a href="{{route('grade', $task->id) }}" class="btn btn-info float-left" role="button"  style="margin-left: 40%">View/Add Grade</a><br><br>
         <table class="table table-bordered" style='table-layout:fixed;' >
             <thead class="thead-dark">
                 <tr>

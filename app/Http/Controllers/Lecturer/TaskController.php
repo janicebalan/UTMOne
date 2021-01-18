@@ -159,5 +159,12 @@ class TaskController extends Controller
 
         return view('lecturer.task.showStudent', compact('task', 'post'));
     }
+
+    public function grade($id){
+        $task = Task::find($id);
+        $task_id = $task->id;
+        $post = Post::where([ 'task_id' => $task_id])->get();
+        return view('lecturer.task.grade',compact('task', 'post'));
+    }
     
 }
