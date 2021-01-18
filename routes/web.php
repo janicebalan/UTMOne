@@ -41,6 +41,10 @@ Route::post('/lecturer/update/courseWork/{id}', 'CourseController@updatecourseWo
 Route::get('delete/courses/{id}', 'CourseController@delete');
 Route::get('assign/courses/{id}', 'CourseController@assign');
 Route::get('assignfunction/courses/{id}', 'CourseController@assignfunction');
+Route::get('assigning/courses/{id1}/{id2}', 'CourseController@assigning');
+Route::get('/student/enrollpage/courses', 'CourseController@enrollpage');
+Route::get('/student/enroll/courses/{id}', 'CourseController@enroll');
+
 Route::resource('/lecturer/tasks', 'Lecturer\TaskController', ['as'=>'lecturer']);
 Route::view('/edituser', '/edituser')->name('edituser');
 Route::get('edituser','userController@index');

@@ -52,9 +52,42 @@ class CourseController extends Controller
     public function assign(Request $request, $id)
     {
         $product = DB::table('courses')->where('id', $id)->first();
-        $product2 = DB::table('users')->where('')
-        return view("admin.Course.edit", ['product' => $product]);
+        $lecturersID= DB::table('role_user')->select('user_id')->where('role_id', 2)->get();
+        $lecturers=DB::table('users')->select('name', 'username')->where('userID', 'like', '%LE%')->get();
+        return view("admin.Course.assign", ['product' => $product, 'lecturers' => $lecturers]);
     }
+
+    public function assigning(Request $request, $id1, $id2)
+    {
+        //$data= DB::table('users')->select('name')->where('id', $id1)->first();
+        //$course = DB::table('courses')->where('id', $id)->update($data);
+
+    }
+
+    public function enroll( $id)
+    {
+        $user_id = auth()->user()->id;
+        $product = DB::table('courses')->where('id', $id)->first();
+        $data = array();
+        $data['id'] = $product->id;
+        $data['courseID'] = $product->courseID;
+        $data['courseName'] = $product->courseName;
+        $data['courseCapacity'] = $product->courseCapacity;
+        $data['lecturerAssigned'] = $product->lecturerAssigned;
+        $data['user_id'] = $user_id;
+
+        $course = DB::table('courses')->insert($data);
+        return redirect()->route('student')->with('success', 'Course Enrolled');
+
+    }
+
+    public function enrollpage()
+    {
+
+        $product = DB::table('courses')->where('user_id', 0)->get();
+       return view("student.course.enrollmentpage", ['product' => $product]);
+    }
+
 
     public function delete(Request $request, $id)
     {

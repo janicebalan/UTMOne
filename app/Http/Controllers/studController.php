@@ -16,7 +16,8 @@ class studController extends Controller
 
     public function index()
     {
-        $product = DB::table('courses')->get();
+        $user_id = auth()->user()->id;
+        $product = DB::table('courses')->where('user_id', $user_id)->get();
        return view("student.index", ['product' => $product]);
     }
 }

@@ -6,19 +6,30 @@
         <th>Course Name</th>
         <th>Lecturer Assigned</th>
     </tr>
-    @foreach($product as $courses)
     <tr>
 
-      <td>{{$courses->courseID}}</td>
-      <td>{{$courses->courseName}}</td>
-      <td>{{$courses->lecturerAssigned}}</td>
-      <td>
-      <a class="btn btn-info" href="{{URL::to('view/courses/'.$courses->id)}}">Show</a>
-          <a class="btn btn-primary" href="{{URL::to('edit/courses/'.$courses->id)}}">Edit</a>
-          <a class="btn btn-danger" href="{{URL::to('delete/courses/'.$courses->id)}}" onclick="return confirm('Are you sure?')">Delete</a>
-      </td>
-
+      <td>{{$product->courseID}}</td>
+      <td>{{$product->courseName}}</td>
+      <td>{{$product->lecturerAssigned}}</td>
     </tr>
-    @endforeach()
 </table>
+
+
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Username</th>
+</tr>
+                    @foreach($lecturers as $lecturers)
+                      <tr>
+                        <td>{{$lecturers->name}}</td>
+                        <td>{{$lecturers->username}}</td>
+                        <td>
+                        <a class="btn btn-info" href="{{URL::to('assigning/courses/'.$lecturers->id .$prdouct->id)}}">Assign</a>
+                        </td>
+
+                      </tr>
+
+                      @endforeach()
+                    </table>
 @endsection
