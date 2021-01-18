@@ -58,6 +58,6 @@ Route::post('/student/post/store/{id}', [App\Http\Controllers\PostsController::c
 Route::get('/student/tasks', [App\Http\Controllers\Lecturer\TaskController::class, 'index2'])->name('studTaskList');
 Route::get('/student/tasks/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'show'])->name('studTaskDetails');
 
-Route::get('/lecturer/tasks/showStudent/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'showStudent'])->name('studTaskList');
+Route::get('/lecturer/tasks/showStudent/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'showStudent'])->name('studTaskLists');
 
 Auth::routes();
