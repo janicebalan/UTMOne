@@ -49,6 +49,13 @@ class CourseController extends Controller
         return redirect()->route('admin')->with('success', 'Course Info Updated');
     }
 
+    public function assign(Request $request, $id)
+    {
+        $product = DB::table('courses')->where('id', $id)->first();
+        $product2 = DB::table('users')->where('')
+        return view("admin.Course.edit", ['product' => $product]);
+    }
+
     public function delete(Request $request, $id)
     {
         $course = DB::table('courses')->where('id', $id)->delete();

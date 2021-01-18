@@ -39,6 +39,8 @@ Route::get('/lecturer/view/courses/{id}', 'CourseController@lectview')->name('le
 Route::post('update/courses/{id}', 'CourseController@update');
 Route::post('/lecturer/update/courseWork/{id}', 'CourseController@updatecourseWork');
 Route::get('delete/courses/{id}', 'CourseController@delete');
+Route::get('assign/courses/{id}', 'CourseController@assign');
+Route::get('assignfunction/courses/{id}', 'CourseController@assignfunction');
 Route::resource('/lecturer/tasks', 'Lecturer\TaskController', ['as'=>'lecturer']);
 Route::view('/edituser', '/edituser')->name('edituser');
 Route::get('edituser','userController@index');
@@ -50,9 +52,9 @@ Route::post('edit/{id}','userController@edit');
 
 
 Route::resource('/student/posts', 'PostsController', ['as'=>'student']);
-Route::get('/student/post/create/{id}', [App\Http\Controllers\PostsController::class, 'create2'])->name('studCreate'); 
-Route::get('/student/post/edit/{id}', [App\Http\Controllers\PostsController::class, 'edit2'])->name('studEdit'); 
-Route::post('/student/post/store/{id}', [App\Http\Controllers\PostsController::class, 'store2'])->name('studStore'); 
+Route::get('/student/post/create/{id}', [App\Http\Controllers\PostsController::class, 'create2'])->name('studCreate');
+Route::get('/student/post/edit/{id}', [App\Http\Controllers\PostsController::class, 'edit2'])->name('studEdit');
+Route::post('/student/post/store/{id}', [App\Http\Controllers\PostsController::class, 'store2'])->name('studStore');
 Route::get('/student/tasks', [App\Http\Controllers\Lecturer\TaskController::class, 'index2'])->name('studTaskList');
 Route::get('/student/tasks/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'show'])->name('studTaskDetails');
 
