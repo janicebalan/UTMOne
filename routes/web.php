@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+}); 
 
-Auth::routes();
+Auth::routes(); 
 
 /*
 Route::get('/home', 'HomeController@index')->name('home');
@@ -63,5 +63,7 @@ Route::get('/student/tasks', [App\Http\Controllers\Lecturer\TaskController::clas
 Route::get('/student/tasks/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'show'])->name('studTaskDetails');
 
 Route::get('/lecturer/tasks/showStudent/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'showStudent'])->name('studTaskLists');
+Route::get('/lecturer/tasks/grade/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'grade'])->name('grade');
+Route::post('/lecturer/tasks/grade/storeGrade/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'storeGrade'])->name('storeGrade'); 
 
 Auth::routes();

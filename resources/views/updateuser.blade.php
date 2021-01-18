@@ -19,7 +19,7 @@
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value = '<?php echo$users[0]->name; ?>'/> 
-
+ 
                                 </div>
                             </div>
                             <div class="form-group row">

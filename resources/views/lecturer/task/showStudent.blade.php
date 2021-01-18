@@ -1,10 +1,11 @@
 @extends('layouts.lecturer')
 @section('content')
 
-
-
-<br>
 <div class='container'>
+<br>
+<a href="{{route('lecturer.tasks.index')}}" class="btn btn-secondary" style="width:100px">&laquo; Back</a>
+<br><br>
+
     <div class="card bg-info text-white">
         <div class="card-body" style='text-align:center' ><h1>Student Submissions List</h1></div>
     </div>
@@ -22,6 +23,7 @@
         
 
         @else
+        <a href="{{route('grade', $task->id) }}" class="btn btn-info float-left" role="button"  style="margin-left: 40%">View/Add Grade</a><br><br>
         <table class="table table-bordered" style='table-layout:fixed;' >
             <thead class="thead-dark">
                 <tr>
