@@ -15,7 +15,7 @@ class adminController extends Controller
 
     public function index()
     {
-        $product = DB::table('courses')->get();
+        $product = DB::table('courses')->where('user_id', 0)->get();
        return view("admin.index", ['product' => $product]);
     }
 }

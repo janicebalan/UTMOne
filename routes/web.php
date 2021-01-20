@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-}); 
+});
 
-Auth::routes(); 
+Auth::routes();
 
 /*
 Route::get('/home', 'HomeController@index')->name('home');
@@ -28,6 +28,7 @@ Route::get('/user', 'userController@index')->name('user');
 Route::get('/admin', 'adminController@index')->name('admin');
 Route::get('/lecturer', 'lectController@index')->name('lecturer');
 Route::get('/student', 'studController@index')->name('student');
+
 Route::get('/student/viewCourse/{id}', 'CourseController@studview');
 Route::get('/lecturer/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('list_task');
 Route::view('/admin/createView', '/admin/createCourse/create')->name('createPage');
@@ -35,13 +36,15 @@ Route::post('/admin/storeCourse', 'CourseController@Store')->name('creatingCours
 Route::get('edit/courses/{id}', 'CourseController@edit');
 Route::get('/lecturer/edit/courseWork/{id}', 'CourseController@editCourseWork');
 Route::get('view/courses/{id}', 'CourseController@view');
+Route::get('viewstudents/courses/{id}', 'CourseController@viewStudents');
 Route::get('/lecturer/view/courses/{id}', 'CourseController@lectview')->name('lecturerCourse');
 Route::post('update/courses/{id}', 'CourseController@update');
 Route::post('/lecturer/update/courseWork/{id}', 'CourseController@updatecourseWork');
 Route::get('delete/courses/{id}', 'CourseController@delete');
 Route::get('assign/courses/{id}', 'CourseController@assign');
 Route::get('assignfunction/courses/{id}', 'CourseController@assignfunction');
-Route::get('assigning/courses/{id1}/{id2}', 'CourseController@assigning');
+Route::get('assigning/courses/{id1}/{id2}/{name}', 'CourseController@assigning');
+Route::get('unassigning/courses/{id1}', 'CourseController@unassigning');
 Route::get('/student/enrollpage/courses', 'CourseController@enrollpage');
 Route::get('/student/enroll/courses/{id}', 'CourseController@enroll');
 
@@ -64,6 +67,6 @@ Route::get('/student/tasks/{id}', [App\Http\Controllers\Lecturer\TaskController:
 
 Route::get('/lecturer/tasks/showStudent/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'showStudent'])->name('studTaskLists');
 Route::get('/lecturer/tasks/grade/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'grade'])->name('grade');
-Route::post('/lecturer/tasks/grade/storeGrade/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'storeGrade'])->name('storeGrade'); 
+Route::post('/lecturer/tasks/grade/storeGrade/{id}', [App\Http\Controllers\Lecturer\TaskController::class, 'storeGrade'])->name('storeGrade');
 
 Auth::routes();

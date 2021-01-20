@@ -53,19 +53,60 @@ class CourseController extends Controller
     {
         $product = DB::table('courses')->where('id', $id)->first();
         $lecturersID= DB::table('role_user')->select('user_id')->where('role_id', 2)->get();
-        $lecturers=DB::table('users')->select('name', 'username')->where('userID', 'like', '%LE%')->get();
+        $lecturers=DB::table('users')->select('id', 'name', 'username')->where('userID', 'like', '%LE%')->get();
         return view("admin.Course.assign", ['product' => $product, 'lecturers' => $lecturers]);
     }
 
-    public function assigning(Request $request, $id1, $id2)
+    public function assigning(Request $request, $id1, $id2, $name)
     {
-        //$data= DB::table('users')->select('name')->where('id', $id1)->first();
-        //$course = DB::table('courses')->where('id', $id)->update($data);
+        try{
+        $lectID= $id1;
+        $courseID=$id2;
+        $data= Course::find($courseID);
+        $data->lecturerAssigned = $name;
+        $data->save();
+        $user_id = $lectID;
+        $product = DB::table('courses')->where('id', $courseID)->first();
+        $data = array();
+        $data['id'] = $product->id;
+        $data['courseID'] = $product->courseID;
+        $data['courseName'] = $product->courseName;
+        $data['courseCapacity'] = $product->courseCapacity;
+        $data['lecturerAssigned'] = $product->lecturerAssigned;
+        $data['user_id'] = $user_id;
+        $course = DB::table('courses')->insert($data);
+        return redirect()->route('admin')->with('success', 'Lecturer Assigned Successfully');
+        }
 
+        catch(\Exception $e)
+        {
+            return redirect()->route('admin')->with('error', 'This lecturer is already assigned.');
+        }
+
+    }
+
+    public function unassigning(Request $request, $id2)
+    {
+        $courseID=$id2;
+        $name = DB::table('courses')->where('id', $id2)->value('lecturerAssigned');
+
+        if($name == null)
+        {
+            return redirect()->route('admin')->with('error', 'There is no lecturer assigned.');
+        }
+
+        else{
+            $course = DB::table('courses')->where('id', $id2)->where('user_id', '<>', 0)->delete();
+            $data= Course::find($id2);
+            $data->lecturerAssigned = null;
+            $data->save();
+            return redirect()->route('admin')->with('success', 'Lecturer Unassigned');
+        }
     }
 
     public function enroll( $id)
     {
+        try{
         $user_id = auth()->user()->id;
         $product = DB::table('courses')->where('id', $id)->first();
         $data = array();
@@ -75,10 +116,16 @@ class CourseController extends Controller
         $data['courseCapacity'] = $product->courseCapacity;
         $data['lecturerAssigned'] = $product->lecturerAssigned;
         $data['user_id'] = $user_id;
-
         $course = DB::table('courses')->insert($data);
-        return redirect()->route('student')->with('success', 'Course Enrolled');
 
+
+        return redirect()->route('student')->with('success', 'Course Enrolled');
+        }
+
+        catch(\Exception $e)
+        {
+            return redirect()->route('student')->with('error', 'You have already enrolled in this course');
+        }
     }
 
     public function enrollpage()
@@ -112,6 +159,15 @@ class CourseController extends Controller
     {
         $course = DB::table('courses')->where('id', $id)->first();
         return view('student.viewCourse', ['course' => $course]);
+    }
+
+    public function viewStudents($id)
+    {
+        $students=DB::table('users')->select('name', 'userID', 'email')->where('userID', 'like', '%ST%')->join('courses', 'courses.user_id', '=', 'users.id')->where('courses.id', $id)->get();
+
+
+
+        return view("lecturer.course.viewStudents", ['students' => $students]);
     }
 
     public function editCourseWork($id)

@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="{{asset ('')}}plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -39,7 +39,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="lecturer" class="nav-link">Home</a>
+        <a href="{{route('lecturer')}}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
       <a class="nav-link" href="{{ route('logout') }}"
@@ -197,7 +197,7 @@
             </a>
 
           </li>
-          
+
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -320,7 +320,7 @@
               </p>
             </a>
             </li>
-         
+
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -329,13 +329,13 @@
               </p>
             </a>
           </li>
-          
+
           <li class="nav-header">User Action</li>
-          
+
           <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link"  onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                       
+
               <i class="nav-icon far fa-circle text-danger"></i>
               <p>Logout</p>
             </a>
@@ -352,7 +352,7 @@
 
 
 
-                                    
+
 
 
 

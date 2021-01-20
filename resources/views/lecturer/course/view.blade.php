@@ -23,7 +23,7 @@
             </div>
             <a href="{{route('lecturer.tasks.index')}}" class="btn btn-info float-left" role="button" >View Tasks</a>
 
-            <a href="#" class="btn btn-info float-left" role="button" style="margin-left: 20px;">View Students</a>
+            <a href="{{URL::to('viewstudents/courses/'.$course->id)}}" class="btn btn-info float-left" role="button" style="margin-left: 20px;">View Students</a>
             <br>
             <br>
 
