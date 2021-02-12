@@ -1,9 +1,10 @@
 @extends('layouts.student')
 
 @section('content')
-
-<br>
 <div class='container'>
+<br>
+<a href="{{route('studTaskList')}}" class="btn btn-secondary" style="width:100px">&laquo; Back</a>
+<br><br>
     <div class="card bg-info text-white">
         <div class="card-body" style='text-align:center' ><h1>Assignment Details</h1></div>
     </div>
