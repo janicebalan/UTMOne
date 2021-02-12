@@ -49,7 +49,7 @@
 
                          {!!Form::open(['action' => ['PostsController@destroy', $posts->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                         {{Form::hidden('_method', 'DELETE')}}
-                         {{Form::submit('Delete Submission', ['class' => 'btn btn-danger'])}}
+                         {{Form::submit('Delete Submission', ['class' => 'btn btn-danger' , 'onclick' => 'return confirm("Are you sure you want to delete?")'])}}
                          {!!Form::close()!!}
                     @endif
                  @endif

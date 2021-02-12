@@ -37,7 +37,7 @@
           <form action="{{route('lecturer.tasks.destroy', $t->id) }}" method="post">
           {{csrf_field()}}
           <input type="hidden" name="_method" value="DELETE">
-          <button type='submit' name="submit" class="btn btn-danger">Delete</button>
+          <button type='submit' name="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')">Delete</button>
           </form>
         </td>
         <td> <a href="{{route('studTaskLists', $t->id) }}" class="btn btn-info">View Students</a></td>
