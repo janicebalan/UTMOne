@@ -257,7 +257,9 @@ class PostsController extends Controller
         }
         $post->save();
 
-        return redirect('/student')->with('success', 'Submission Updated');
+        $task_id = $post->task_id;
+
+        return app('App\Http\Controllers\Lecturer\TaskController')->show($task_id);
     }
 
     /**
@@ -286,7 +288,8 @@ class PostsController extends Controller
         }
         
         $post->delete();
-        return redirect('/student')->with('success', 'Submission Removed');
+        $task_id = $post->task_id;
+        return app('App\Http\Controllers\Lecturer\TaskController')->show($task_id);
     }
     }
 
