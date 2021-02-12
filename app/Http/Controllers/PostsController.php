@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Post;
 use App\User;
 use App\Task;
+use Illuminate\Support\Facades\DB;
 
 use Faker\Provider\Image;
 
@@ -113,7 +114,7 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            
+            'fileupload' => 'required',
         ]);
 
         // Handle File Upload
@@ -149,7 +150,7 @@ class PostsController extends Controller
         $posts->save();
 
         return app('App\Http\Controllers\Lecturer\TaskController')->show($id);
-        //$task = Task::find($id);
+        //$task = Task::find($id);s
         //$task_id = $task->id;
         //$user_id = auth()->user()->id;
        // $post = Post::where(['user_id'=> $user_id, 'task_id' => $task_id])->get();
@@ -259,7 +260,7 @@ class PostsController extends Controller
 
         $task_id = $post->task_id;
 
-        return app('App\Http\Controllers\Lecturer\TaskController')->show($task_id);
+        return app('App\Http\Controllers\Lecturer\TaskController')->show($task_id)->with('success','Updated successfully!');
     }
 
     /**
@@ -289,7 +290,7 @@ class PostsController extends Controller
         
         $post->delete();
         $task_id = $post->task_id;
-        return app('App\Http\Controllers\Lecturer\TaskController')->show($task_id);
+        return app('App\Http\Controllers\Lecturer\TaskController')->show($task_id)->with('success','Deleted successfully!');
     }
     }
 
