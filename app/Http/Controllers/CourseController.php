@@ -21,6 +21,7 @@ class CourseController extends Controller
 
     public function Store(Request $request)
     {
+        try{
         $data = array();
         $data['courseID'] = $request->courseID;
         $data['courseName'] = $request->courseName;
@@ -29,6 +30,13 @@ class CourseController extends Controller
 
         $course = DB::table('courses')->insert($data);
         return redirect()->route('admin')->with('success', 'Course Added Successfully');
+        }
+
+        catch(\Exception $e)
+        {
+            return redirect()->route('admin')->with('error', 'Please fill in the data required');
+        }
+        
     }
 
     public function edit($id)
