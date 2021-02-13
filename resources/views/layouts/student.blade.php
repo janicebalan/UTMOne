@@ -120,7 +120,6 @@ $(document).ready(function () {
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Enroll Courses
-                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             </li>
@@ -154,45 +153,7 @@ $(document).ready(function () {
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Chatroom
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inbox</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Compose</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/read-mail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Read</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-header">COURSE ACTION</li>
-          <li class="nav-item">
-            <a href="{{route('studTaskList')}}" class="nav-link ">
-              <i class="nav-icon fa fa-th"></i>
-              <p>
-                Task Dashboard
-              </p>
-            </a>
-            </li>
+          
 
 
 
