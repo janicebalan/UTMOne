@@ -19,9 +19,11 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
+
+                filter: blur(8px);
+                -webkit-filter: blur(8px);
             }
             html, body {
-                background-color: #fff;
                 color: white;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -79,7 +81,7 @@
                 transform: translate(-50%, -50%);
                 z-index: 2;
                 width: 80%;
-                padding: 20px;
+                padding: 50px;
                 text-align: center;
             }
 
@@ -103,7 +105,8 @@
         </style>
     </head>
     <body>
-        <div class="bg-image flex-center position-ref full-height">
+    <div class="bg-image"></div>
+        <div class="bg-text flex-center position-ref full-height">
             <!--
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -122,7 +125,7 @@
                 </div>
             @endif
             -->
-            <div class="bg-text content">
+            <div class="content">
                 <div class="title m-b-md">
                 UTMOne
                 </div>
