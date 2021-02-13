@@ -26,7 +26,7 @@ class CourseController extends Controller
         $data['courseID'] = $request->courseID;
         $data['courseName'] = $request->courseName;
         $data['courseCapacity'] = $request->courseCapacity;
-        $data['lecturerAssigned'] = $request->lecturerAssigned;
+        //$data['lecturerAssigned'] = $request->lecturerAssigned;
 
         $course = DB::table('courses')->insert($data);
         return redirect()->route('admin')->with('success', 'Course Added Successfully');
@@ -51,7 +51,7 @@ class CourseController extends Controller
         $data['courseID'] = $request->courseID;
         $data['courseName'] = $request->courseName;
         $data['courseCapacity'] = $request->courseCapacity;
-        $data['lecturerAssigned'] = $request->lecturerAssigned;
+        //$data['lecturerAssigned'] = $request->lecturerAssigned;
 
         $course = DB::table('courses')->where('id', $id)->update($data);
         return redirect()->route('admin')->with('success', 'Course Info Updated');

@@ -154,7 +154,7 @@
           <input class="text" type="text" name="courseID" placeholder="Course ID">
           <input type="text" name="courseName" placeholder="Course Name">
           <input type="number" name="courseCapacity" placeholder="Capacity">
-          <input type="text" name="lecturerAssigned" placeholder="Lecturer Assigned">
+          <!-- <input type="text" name="lecturerAssigned" placeholder="Lecturer Assigned"> -->
         </div>
 
         <button type="submit" href="{{ route('creatingCourse') }}">Create</button>

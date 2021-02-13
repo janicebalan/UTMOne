@@ -147,8 +147,8 @@
           <input type="text" name="courseName" value="{{$product->courseName}}">
           <strong>Course Capacity</strong>
           <input type="number" name="courseCapacity" value="{{$product->courseCapacity}}">
-          <strong>Lecture Assigned</strong>
-          <input type="text" name="lecturerAssigned" value="{{$product->lecturerAssigned}}">
+          <!-- <strong>Lecture Assigned</strong>
+          <input type="text" name="lecturerAssigned" value="{{$product->lecturerAssigned}}"> -->
 
         </div>
 
