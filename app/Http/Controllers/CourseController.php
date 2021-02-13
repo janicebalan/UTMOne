@@ -32,7 +32,7 @@ class CourseController extends Controller
         return redirect()->route('admin')->with('success', 'Course Added Successfully');
         }
 
-        catch(Exception $e)
+        catch(\Exception $e)
         {
             return redirect()->route('admin')->with('error', 'Please fill in the data required');
         }
@@ -86,7 +86,7 @@ class CourseController extends Controller
         return redirect()->route('admin')->with('success', 'Lecturer Assigned Successfully');
         }
 
-        catch(Exception $e)
+        catch(\Exception $e)
         {
             return redirect()->route('admin')->with('error', 'This lecturer is already assigned.');
         }
