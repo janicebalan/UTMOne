@@ -44,16 +44,7 @@
                   <i class="fas fa-chart-pie mr-1"></i>
                   Courses
                 </h3>
-                <div class="card-tools">
-                  <ul class="nav nav-pills ml-auto">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                    </li>
-                  </ul>
-                </div>
+                
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content p-0">
