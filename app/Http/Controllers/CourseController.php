@@ -107,24 +107,38 @@ class CourseController extends Controller
     public function enroll( $id)
     {
         try{
-        $user_id = auth()->user()->id;
-        $product = DB::table('courses')->where('id', $id)->first();
-        $data = array();
-        $data['id'] = $product->id;
-        $data['courseID'] = $product->courseID;
-        $data['courseName'] = $product->courseName;
-        $data['courseCapacity'] = $product->courseCapacity;
-        $data['lecturerAssigned'] = $product->lecturerAssigned;
-        $data['user_id'] = $user_id;
-        $course = DB::table('courses')->insert($data);
+        $numreg = DB::table('courses')->where('id', $id)->where('user_id', 0)->pluck('registered');
+        $numcap = DB::table('courses')->where('id', $id)->where('user_id', 0)->pluck('courseCapacity');
 
 
-        return redirect()->route('student')->with('success', 'Course Enrolled');
+        if($numreg<$numcap)
+        {
+            $regNum=DB::table('courses')->where('id', $id)->where('user_id', 0)->update(['registered' => DB::raw('registered + 1')]);
+            $user_id = auth()->user()->id;
+            $product = DB::table('courses')->where('id', $id)->first();
+            $data = array();
+            $data['id'] = $product->id;
+            $data['courseID'] = $product->courseID;
+            $data['courseName'] = $product->courseName;
+            $data['courseCapacity'] = $product->courseCapacity;
+            $data['lecturerAssigned'] = $product->lecturerAssigned;
+            $data['user_id'] = $user_id;
+           
+            $course = DB::table('courses')->insert($data);
+           
+    
+            return redirect()->route('student')->with('success', 'Course Enrolled');
         }
 
-        catch(\Exception $e)
+        elseif($numreg>=$numcap){
+            return redirect()->route('student')->with('error', 'Course is full');
+        }
+        
+        }
+
+         catch(\Exception $e)
         {
-            return redirect()->route('student')->with('error', 'You have already enrolled in this course');
+             return redirect()->route('student')->with('error', 'You have already enrolled in this course');
         }
     }
 

@@ -155,16 +155,6 @@
           <input type="text" name="courseName" placeholder="Course Name">
           <input type="number" name="courseCapacity" placeholder="Capacity">
           <input type="text" name="lecturerAssigned" placeholder="Lecturer Assigned">
-          <select>
-            <option value="courseSection" selected>Section*</option>
-            <option value="section_01">01</option>
-            <option value="section_02">02</option>
-            <option value="section_03">03</option>
-            <option value="section_04">04</option>
-            <option value="section_05">05</option>
-            <option value="section_06">06</option>
-            <option value="section_07">07</option>
-          </select>
         </div>
 
         <button type="submit" href="{{ route('creatingCourse') }}">Create</button>
