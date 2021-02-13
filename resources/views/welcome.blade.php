@@ -11,9 +11,20 @@
 
         <!-- Styles -->
         <style>
+            .bg-image{
+                background-image: url("https://static.scientificamerican.com/sciam/cache/file/C3D6DFBB-92DD-43D0-A9F8CB9AB477F652_source.jpg");              
+                height: 100%;
+
+                /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                filter: blur(8px);
+                -webkit-filter: blur(8px);
+            }
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                color: white;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -58,29 +69,62 @@
                 text-transform: uppercase;
             }
 
+            .bg-text {
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+                color: white;
+                font-weight: bold;
+                border: 3px solid #f1f1f1;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                width: 80%;
+                padding: 50px;
+                text-align: center;
+            }
+
+            .button {
+                transition-duration: 0.4s;
+                font-size: 20px;
+                padding: 15px 36px;
+                border: 1px solid grey;
+                border-radius: 4px;
+                background-color: white;
+            }
+
+            .button:hover {
+                background-color: grey; 
+                color: white;
+            }
+
             .m-b-md {
                 margin-bottom: 30px;
             }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+    <div class="bg-image"></div>
+        <div class="bg-text flex-center position-ref full-height">
+            <!--
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a class="button" href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-
+                        <a class="button" href="{{ route('login') }}">Login</a>
+                         -->
                         <!--
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif
                         -->
+                        <!--
                     @endauth
                 </div>
             @endif
-
+            -->
             <div class="content">
                 <div class="title m-b-md">
                 UTMOne
@@ -88,6 +132,16 @@
 
                 <div class="links">
                     <p>Created by Team Lights</p>
+                    @if (Route::has('login'))
+                        <div class="links">
+                            @auth
+                                <a class="button" href="{{ url('/home') }}">Home</a>
+                            @else
+                                <a class="button" href="{{ route('login') }}">Login</a>
+                            @endauth
+                        </div>
+                    @endif
+                    
                 </div>
             </div>
         </div>
