@@ -25,7 +25,7 @@ class AddUserIdToCourses extends Migration
 			//$table->primary(['id', 'user_id']);
         //});
 		
-		DB::unprepared('ALTER TABLE courses DROP PRIMARY KEY, ADD PRIMARY KEY (id, user_id)');
+		DB::unprepared('ALTER TABLE "courses" DROP PRIMARY KEY, ADD PRIMARY KEY ('id', 'user_id')');
 		
 		
 		//DB::unprepared('ALTER TABLE `courses` DROP PRIMARY KEY, ADD PRIMARY KEY (  `id` ,  `user_id` )');
