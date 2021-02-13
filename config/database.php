@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-$DATABASE_URL = parse_url('postgres://kabdprbhcandqi:7ba2a03e3c46783e33255d9185e220ea5d62c5355d7e2f0028ea03d2ceac273c@ec2-54-90-13-87.compute-1.amazonaws.com:5432/d28p1vq36l8pjh');
+
 
 return [
 
@@ -45,27 +45,32 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        // ‘mysql’ => [
-// ‘driver’ => ‘mysql’,
-// ‘host’ => env(‘DB_HOST’, ‘127.0.0.1’),
-// ‘port’ => env(‘DB_PORT’, ‘3306’),
-// ‘database’ => env(‘DB_DATABASE’, ‘forge’),
-// ‘username’ => env(‘DB_USERNAME’, ‘forge’),
-// ‘password’ => env(‘DB_PASSWORD’, ‘’),
-// ‘unix_socket’ => env(‘DB_SOCKET’, ‘’),
-// ‘charset’ => ‘utf8mb4’,
-// ‘collation’ => ‘utf8mb4_unicode_ci’,
-// ‘prefix’ => ‘’,
-// ‘strict’ => false,
-// ‘engine’ => null,
-// ],
+        // 'mysql' => [
+        //     'driver' => 'mysql',
+        //     'url' => env('DATABASE_URL'),
+        //     'host' => env('DB_HOST', '127.0.0.1'),
+        //     'port' => env('DB_PORT', '3306'),
+        //     'database' => env('DB_DATABASE', 'forge'),
+        //     'username' => env('DB_USERNAME', 'forge'),
+        //     'password' => env('DB_PASSWORD', ''),
+        //     'unix_socket' => env('DB_SOCKET', ''),
+        //     'charset' => 'utf8mb4',
+        //     'collation' => 'utf8mb4_unicode_ci',
+        //     'prefix' => '',
+        //     'prefix_indexes' => true,
+        //     'strict' => true,
+        //     'engine' => null,
+        //     'options' => extension_loaded('pdo_mysql') ? array_filter([
+        //         PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+        //     ]) : [],
+        // ],
 'mysql' => [
     'driver' => 'mysql',
     'host' => 'db4free.net',
     'port' => '3306',
     'database' => lights,
     'username' => lights,
-    'password' =>lights123,
+    'password' => lights123,
     'charset' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',
     'prefix' => '',
