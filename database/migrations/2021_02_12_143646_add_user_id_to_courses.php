@@ -14,8 +14,14 @@ class AddUserIdToCourses extends Migration
     public function up()
     {
         Schema::table('courses', function (Blueprint $table) {
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id')->default('0');
         });
+		
+		DB::unprepared('ALTER TABLE `courses` DROP PRIMARY KEY, ADD PRIMARY KEY (  `id` ,  `user_id` )');
+		
+		Schema::table('courses', function (Blueprint $table) {
+		$table->foreign('user_id')->references('id')->on('users');
+		});
     }
 
     /**
@@ -26,6 +32,7 @@ class AddUserIdToCourses extends Migration
     public function down()
     {
         Schema::table('courses', function (Blueprint $table) {
+			$table->dropForeign('courses_user_id_foreign');
             $table->dropColumn('user_id');
         });
     }

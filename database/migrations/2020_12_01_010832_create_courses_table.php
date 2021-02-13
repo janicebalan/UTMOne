@@ -18,7 +18,9 @@ class CreateCoursesTable extends Migration
             $table->string('courseID');
             $table->string('courseName');
             $table->integer('courseCapacity');
-            $table->string('lecturerAssigned');
+			$table->integer('registered')->default('0');
+            $table->string('lecturerAssigned')->nullable();
+			$table->text('courseWork')->nullable();
             $table->timestamps();
         });
     }
