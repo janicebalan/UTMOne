@@ -59,6 +59,7 @@
                           <th>Course ID</th>
                           <th>Course Name</th>
                           <th>Course Capacity</th>
+                          <th>Registered Students</th>
                           <th>Lecturer Assigned</th>
                           <th>Action</th>
                       </tr>
@@ -68,6 +69,7 @@
                         <td>{{$courses->courseID}}</td>
                         <td>{{$courses->courseName}}</td>
                         <td>{{$courses->courseCapacity}}</td>
+                        <td>{{$courses->registered}}</td>
                         <td>{{$courses->lecturerAssigned}}</td>
                         <td>
                             <a class="btn btn-primary" href="{{URL::to('edit/courses/'.$courses->id)}}">Edit</a>
